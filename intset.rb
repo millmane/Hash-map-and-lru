@@ -1,4 +1,4 @@
-class IntSet
+class MaxIntSet
   def initialize(max)
     @store = Array.new(max, false)
   end
