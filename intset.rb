@@ -15,3 +15,22 @@ class MaxIntSet
     @store[int]
   end
 end
+
+class IntSet
+  def initialize
+    @length = 20
+    @store = Array.new(@length) { [] }
+  end
+
+  def insert(int)
+    @store[int % @length] << int
+  end
+
+  def remove(int)
+    @store[int % @length].delete(int)
+  end
+
+  def include?(int)
+    @store[int % @length].include?(int)
+  end
+end
