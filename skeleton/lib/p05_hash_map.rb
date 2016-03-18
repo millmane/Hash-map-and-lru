@@ -20,7 +20,7 @@ class HashMap
   def set(key, val)
     resize! if count == num_buckets
 
-    if include?(key)
+    if bucket(key).include?(key)
       bucket(key).each do |link|
         if link.key == key
           link.val = val
