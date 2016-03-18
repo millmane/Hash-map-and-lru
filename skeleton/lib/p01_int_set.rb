@@ -38,7 +38,7 @@ class IntSet
   end
 
   def insert(num)
-    @store[num % @num_buckets] << num
+    @store[num % @num_buckets] << num unless include?(num)
   end
 
   def remove(num)
@@ -70,6 +70,8 @@ class ResizingIntSet
   end
 
   def insert(num)
+    return if include?(num)
+
     resize! if count == num_buckets
 
     @store[num % num_buckets] << num
