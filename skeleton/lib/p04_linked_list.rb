@@ -11,6 +11,10 @@ class Link
   def to_s
     "#{@key}: #{@val}"
   end
+
+  def inspect
+    "#{@key}: #{@val}"
+  end
 end
 
 class LinkedList
@@ -29,6 +33,14 @@ class LinkedList
 
   def initialize
     @sent_head, @sent_tail = LinkedList.generate_sentinels
+  end
+
+  def inspect
+    links = []
+    each do |link|
+      links << "[#{link.key}, #{link.val}]"
+    end
+    links.join(", ")
   end
 
   def [](i)

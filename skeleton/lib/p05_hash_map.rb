@@ -9,9 +9,6 @@ class HashMap
     @store = Array.new(num_buckets) { LinkedList.new }
     @count = 0
   end
-  #
-  # def inspect
-  # end
 
   def include?(key)
     bucket(key).include?(key)
@@ -49,12 +46,12 @@ class HashMap
   end
 
   # uncomment when you have Enumerable included
-  # def to_s
-  #   pairs = inject([]) do |strs, (k, v)|
-  #     strs << "#{k.to_s} => #{v.to_s}"
-  #   end
-  #   "{\n" + pairs.join(",\n") + "\n}"
-  # end
+  def to_s
+    pairs = inject([]) do |strs, (k, v)|
+      strs << "#{k.to_s} => #{v.to_s}"
+    end
+    "{\n" + pairs.join(",\n") + "\n}"
+  end
 
   alias_method :[], :get
   alias_method :[]=, :set
